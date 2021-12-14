@@ -1,4 +1,3 @@
-
 <h1 align="center">My Home</h1>
 
 <p align="center">
@@ -10,19 +9,72 @@
 > A React Native app about room air quality.
 
 ## Screenshot
+
 ### List
 
-<img src="https://github.com/varandrew/my-home/blob/main/screenshots/screenshot-1.png" width="647.5" height="1295"/> 
+<img src="https://github.com/varandrew/my-home/blob/main/screenshots/screenshot-1.png" width="647.5" height="1295"/>
 
 ### Chart
 
-<img src="https://github.com/varandrew/my-home/blob/main/screenshots/screenshot-2.png" width="647.5" height="1295"/> 
+<img src="https://github.com/varandrew/my-home/blob/main/screenshots/screenshot-2.png" width="647.5" height="1295"/>
 
+## Project Layout
 
+```bash
+.
+├── __tests__
+│   └── App-test.tsx
+├── screenshots
+│   ├── screenshot-1.png
+│   └── screenshot-2.png
+├── scripts
+│   └── stfu.js
+├── src
+│   ├── assets
+│   │   ├── cloudy.jpeg
+│   │   ├── cloudy.svg
+│   │   ├── menu.svg
+│   │   ├── moon.svg
+│   │   ├── night2.jpg
+│   │   ├── rain.svg
+│   │   ├── rainy.jpg
+│   │   ├── search.svg
+│   │   ├── sun.svg
+│   │   ├── sunny.jpg
+│   │   └── weather.png
+│   ├── components
+│   ├── models
+│   │   └── locations.ts
+│   ├── pages
+│   │   ├── Chart.tsx
+│   │   └── List.tsx
+│   ├── routes
+│   │   ├── Router.tsx
+│   │   └── routes.ts
+│   ├── types
+│   │   └── index.ts
+│   ├── typings
+│   │   └── file.d.ts
+│   ├── utils
+│   │   ├── config.ts
+│   │   └── request.ts
+│   └── App.tsx
+├── LICENSE
+├── README.md
+├── app.json
+├── babel.config.js
+├── index.js
+├── metro.config.js
+├── package.json
+├── tsconfig.json
+└── yarn.lock
 
-## 项目运行
+12 directories, 34 files
+```
 
-``` bash
+## Running the app
+
+```bash
 # git clone
 git clone https://github.com/varandrew/my-home.git
 
@@ -43,4 +95,3 @@ yarn postinstall
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-

@@ -94,4 +94,4 @@ yarn link
 yarn postinstall
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+For detailed explanation on how things work, checkout the [guide](https://reactnative.dev/) and [docs for react](https://reactjs.org/).

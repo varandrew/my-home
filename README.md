@@ -84,14 +84,15 @@ cd my-home
 # install dependencies
 yarn
 
-# serve with hot reload at ios
-yarn ios
+# postinstall
+yarn postinstall
 
 # link
 yarn link
 
-# postinstall
-yarn postinstall
+# serve with hot reload at ios
+yarn ios
+
 ```
 
 For detailed explanation on how things work, checkout the [guide](https://reactnative.dev/) and [docs for react](https://reactjs.org/).

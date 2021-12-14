@@ -61,27 +61,33 @@ const Item = ({record}: {record: Air}) => {
 const List: React.FC = () => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState<Air[]>([]);
+  const [page, setPage] = useState(1);
   const renderItem = ({item}: {item: Air}) => <Item record={item} />;
 
+  const load = async (page: number = 1) => {
+    setLoading(true);
+    const r: any = await weget.get('/air/list', {page, limit: 10});
+    if (r?.status !== 200) setData([]);
+    setData(data.concat((r?.data as Air[]) ?? []));
+    setLoading(false);
+  };
+
   useEffect(() => {
-    (async () => {
-      setLoading(true);
-      const r: any = await weget.get('/air/list', {page: 1, limit: 10});
-      if (r?.status === 200) {
-        setData(r.data as Air[]);
-      }
-      setLoading(false);
-    })();
-  }, []);
+    load(page);
+  }, [page]);
 
   return (
     <SafeAreaView style={[styles.container]}>
-      {isLoading ? (
+      {isLoading && !data.length ? (
         <ActivityIndicator size="large" color="#0000ff" />
       ) : (
         <FlatList
           data={data}
+          refreshing={isLoading}
           renderItem={renderItem}
+          onRefresh={load}
+          onEndReachedThreshold={0.1}
+          onEndReached={() => setPage(page + 1)}
           keyExtractor={item => item._id.$oid}
         />
       )}

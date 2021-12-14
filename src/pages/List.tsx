@@ -12,8 +12,8 @@ import {
 import {Weget as weget} from '../utils/request';
 import {Air} from '../types';
 
-const getWeekday = (date: string) => {
-  var weekArray = new Array(
+const getWeekday = (date: string): string => {
+  const weekArray = new Array(
     'Sunday',
     'Monday',
     'Tuesday',
@@ -22,8 +22,7 @@ const getWeekday = (date: string) => {
     'Friday',
     'Saturday',
   );
-  var week = weekArray[new Date(date).getDay()];
-  return week;
+  return weekArray[new Date(date).getDay()];
 };
 
 const Item = ({record}: {record: Air}) => {
@@ -64,7 +63,7 @@ const List: React.FC = () => {
   const [page, setPage] = useState(1);
   const renderItem = ({item}: {item: Air}) => <Item record={item} />;
 
-  const load = async (page: number = 1) => {
+  const load = async (page: number = 1): Promise<void> => {
     setLoading(true);
     const r: any = await weget.get('/air/list', {page, limit: 10});
     if (r?.status !== 200) setData([]);
@@ -72,9 +71,7 @@ const List: React.FC = () => {
     setLoading(false);
   };
 
-  useEffect(() => {
-    load(page);
-  }, [page]);
+  useEffect(() => {load(page);}, [page]);
 
   return (
     <SafeAreaView style={[styles.container]}>
